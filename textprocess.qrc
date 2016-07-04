@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="menuBar">
+    <file>icon/logo.png</file>
     <file>icon/ico.png</file>
   </qresource>
 </RCC>

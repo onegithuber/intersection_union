@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>648</width>
-    <height>534</height>
+    <height>396</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,8 +29,8 @@
    <string>文本处理</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="textprocess.qrc">
-    <normaloff>:/menuBar/icon/ico.png</normaloff>:/menuBar/icon/ico.png</iconset>
+   <iconset>
+    <normaloff>:/menuBar/icon/logo.png</normaloff>:/menuBar/icon/logo.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -76,7 +76,7 @@
      <x>0</x>
      <y>0</y>
      <width>648</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="font">
@@ -131,8 +131,15 @@
     <addaction name="help_action"/>
     <addaction name="author_action"/>
    </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>查看</string>
+    </property>
+    <addaction name="actionA_2"/>
+   </widget>
    <addaction name="flie_menu"/>
    <addaction name="tools_menu"/>
+   <addaction name="menu"/>
    <addaction name="help_menu"/>
   </widget>
   <action name="open_file_action">
@@ -202,6 +209,11 @@
   <action name="union_action">
    <property name="text">
     <string>并集</string>
+   </property>
+  </action>
+  <action name="actionA_2">
+   <property name="text">
+    <string>字体</string>
    </property>
   </action>
  </widget>

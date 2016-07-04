@@ -1,19 +1,17 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Script\intersection_union\main.ui'
+# Form implementation generated from reading ui file 'main.ui'
 #
 # Created by: PyQt5 UI code generator 5.6
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(648, 534)
+        MainWindow.resize(648, 396)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -22,7 +20,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(116, 0))
         MainWindow.setCursor(QtGui.QCursor(QtCore.Qt.UpArrowCursor))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/menuBar/icon/ico.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./icon/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("")
         self.centralWidget = QtWidgets.QWidget(MainWindow)
@@ -31,16 +29,16 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.centralWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.textBrowser = QtWidgets.QTextBrowser(self.centralWidget)
-        self.textBrowser.setEnabled(True)
-        self.textBrowser.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.IBeamCursor))
-        self.textBrowser.setAcceptDrops(True)
-        self.textBrowser.setReadOnly(False)
-        self.textBrowser.setObjectName("textBrowser")
-        self.gridLayout.addWidget(self.textBrowser, 0, 0, 1, 1)
+        self.textEdit = QtWidgets.QTextEdit(self.centralWidget)
+        self.textEdit.setEnabled(True)
+        self.textEdit.viewport().setProperty("cursor", QtGui.QCursor(QtCore.Qt.IBeamCursor))
+        self.textEdit.setAcceptDrops(True)
+        self.textEdit.setReadOnly(False)
+        self.textEdit.setObjectName("textBrowser")
+        self.gridLayout.addWidget(self.textEdit, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralWidget)
         self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 648, 26))
+        self.menuBar.setGeometry(QtCore.QRect(0, 0, 648, 22))
         font = QtGui.QFont()
         font.setFamily("新宋体")
         font.setPointSize(12)
@@ -62,6 +60,8 @@ class Ui_MainWindow(object):
         self.help_menu = QtWidgets.QMenu(self.menuBar)
         self.help_menu.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.help_menu.setObjectName("help_menu")
+        self.menu = QtWidgets.QMenu(self.menuBar)
+        self.menu.setObjectName("menu")
         MainWindow.setMenuBar(self.menuBar)
         self.open_file_action = QtWidgets.QAction(MainWindow)
         icon1 = QtGui.QIcon()
@@ -80,18 +80,26 @@ class Ui_MainWindow(object):
         self.author_action.setObjectName("author_action")
         self.actionA = QtWidgets.QAction(MainWindow)
         self.actionA.setObjectName("actionA")
-        self.copy_action = QtWidgets.QAction(MainWindow)
+        self.copy_action = QtWidgets.QAction(MainWindow,)
         self.copy_action.setObjectName("copy_action")
+        self.copy_action.setShortcut(QtGui.QKeySequence.Copy)
+        self.copy_action.triggered.connect(self.textEdit.copy)
         self.cut_action = QtWidgets.QAction(MainWindow)
         self.cut_action.setObjectName("cut_action")
+        self.cut_action.setShortcut(QtGui.QKeySequence.Cut)
+        self.cut_action.triggered.connect(self.textEdit.cut)
         self.paste_action = QtWidgets.QAction(MainWindow)
         self.paste_action.setObjectName("paste_action")
+        self.paste_action.setShortcut(QtGui.QKeySequence.Paste)
+        self.paste_action.triggered.connect(self.textEdit.paste)
         self.actionA_4 = QtWidgets.QAction(MainWindow)
         self.actionA_4.setObjectName("actionA_4")
         self.intersection_action = QtWidgets.QAction(MainWindow)
         self.intersection_action.setObjectName("intersection_action")
         self.union_action = QtWidgets.QAction(MainWindow)
         self.union_action.setObjectName("union_action")
+        self.actionA_2 = QtWidgets.QAction(MainWindow)
+        self.actionA_2.setObjectName("actionA_2")
         self.flie_menu.addAction(self.open_file_action)
         self.flie_menu.addAction(self.save_file_action)
         self.flie_menu.addAction(self.exit_action)
@@ -103,8 +111,10 @@ class Ui_MainWindow(object):
         self.help_menu.addAction(self.about_action)
         self.help_menu.addAction(self.help_action)
         self.help_menu.addAction(self.author_action)
+        self.menu.addAction(self.actionA_2)
         self.menuBar.addAction(self.flie_menu.menuAction())
         self.menuBar.addAction(self.tools_menu.menuAction())
+        self.menuBar.addAction(self.menu.menuAction())
         self.menuBar.addAction(self.help_menu.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -116,6 +126,7 @@ class Ui_MainWindow(object):
         self.flie_menu.setTitle(_translate("MainWindow", "文件"))
         self.tools_menu.setTitle(_translate("MainWindow", "工具"))
         self.help_menu.setTitle(_translate("MainWindow", "帮助"))
+        self.menu.setTitle(_translate("MainWindow", "查看"))
         self.open_file_action.setText(_translate("MainWindow", "打开"))
         self.save_file_action.setText(_translate("MainWindow", "保存"))
         self.exit_action.setText(_translate("MainWindow", "退出"))
@@ -129,27 +140,5 @@ class Ui_MainWindow(object):
         self.actionA_4.setText(_translate("MainWindow", "a"))
         self.intersection_action.setText(_translate("MainWindow", "交集"))
         self.union_action.setText(_translate("MainWindow", "并集"))
-
-
-    def closeEvent(self, event):
-        
-        reply = QMessageBox.question(self, '提示',
-            "是否退出?", QMessageBox.Yes | 
-            QMessageBox.No, QMessageBox.No)
-
-        if reply == QMessageBox.Yes:
-            event.accept()
-        else:
-            event.ignore()
-
-import textprocess_rc
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
+        self.actionA_2.setText(_translate("MainWindow", "字体"))
 

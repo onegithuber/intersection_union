@@ -8,7 +8,7 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QDialog, QMessageBox
 from PyQt5 import QtWidgets
 from Ui_intersection import Ui_intersection_Dialog
-from PyQt5.QtGui import QFont 
+from PyQt5.QtGui import QFont
 
 
 '''
@@ -24,13 +24,13 @@ class intersection_Dialog(QDialog, Ui_intersection_Dialog):
     def __init__(self, parent=None):
         """
         Constructor
-        
+
         @param parent reference to the parent widget
         @type QWidget
         """
         super(intersection_Dialog, self).__init__(parent)
         self.setupUi(self)
-    
+
     @pyqtSlot()
     def on_File1_toolButton_clicked(self):
         """
@@ -43,7 +43,7 @@ class intersection_Dialog(QDialog, Ui_intersection_Dialog):
             self.File1_lineEdit.setText(my_file[0])
         else:
             QtWidgets.QMessageBox.warning(self, u'警告',u'请选择输入文件')
-    
+
     @pyqtSlot()
     def on_File2_toolButton_clicked(self):
         """
@@ -56,14 +56,14 @@ class intersection_Dialog(QDialog, Ui_intersection_Dialog):
             self.File2_lineEdit.setText(my_file[0])
         else:
             QtWidgets.QMessageBox.warning(self, u'警告',u'请选择输入文件')
-    
+
     @pyqtSlot()
     def on_pushButton_clicked(self):
         """
         确定
         """
-        
-    
+
+
     @pyqtSlot()
     def on_radioButton_2_clicked(self):
         """
@@ -80,7 +80,7 @@ class intersection_Dialog(QDialog, Ui_intersection_Dialog):
         #QtWidgets.QToolTip.setFont(QFont('SansSerif', 10))
         #self.radioButton_3.setToolTip(u'输出文件二的内容')
         print('xxx')
-    
+
     @pyqtSlot()
     def on_radioButton_clicked(self):
         """
@@ -89,7 +89,7 @@ class intersection_Dialog(QDialog, Ui_intersection_Dialog):
         #QtWidgets.QToolTip.setFont(QFont('SansSerif', 10))
         #self.radioButton.setToolTip(u'输出两个文件内容')
         print('xxx')
-    
+
     @pyqtSlot()
     def on_pushButton_2_clicked(self):
         """

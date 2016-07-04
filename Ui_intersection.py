@@ -49,6 +49,7 @@ class Ui_intersection_Dialog(object):
         self.File1_spinBox = QtWidgets.QSpinBox(intersection_Dialog)
         self.File1_spinBox.setGeometry(QtCore.QRect(170, 190, 81, 31))
         self.File1_spinBox.setObjectName("File1_spinBox")
+        self.File1_spinBox.setRange(1,999)
         self.File2_col_label = QtWidgets.QLabel(intersection_Dialog)
         self.File2_col_label.setGeometry(QtCore.QRect(330, 200, 72, 15))
         self.File2_col_label.setStyleSheet("font: 11pt \"黑体\";")
@@ -56,6 +57,7 @@ class Ui_intersection_Dialog(object):
         self.File2_spinBox = QtWidgets.QSpinBox(intersection_Dialog)
         self.File2_spinBox.setGeometry(QtCore.QRect(410, 190, 81, 31))
         self.File2_spinBox.setObjectName("File2_spinBox")
+        self.File2_spinBox.setRange(1, 999)
         self.pushButton = QtWidgets.QPushButton(intersection_Dialog)
         self.pushButton.setGeometry(QtCore.QRect(330, 370, 93, 28))
         self.pushButton.setStyleSheet("font: 11pt \"黑体\";")
@@ -105,10 +107,10 @@ class Ui_intersection_Dialog(object):
         self.radioButton.setText(_translate("intersection_Dialog", "所有文件"))
 
     def closeEvent(self, event):
-        
+
         reply = QMessageBox.question(self, '提示',
-            "是否退出?", QMessageBox.Yes | 
-            QMessageBox.No, QMessageBox.No)
+                                     "是否退出?", QMessageBox.Yes |
+                                     QMessageBox.No, QMessageBox.No)
 
         if reply == QMessageBox.Yes:
             event.accept()
@@ -118,10 +120,10 @@ class Ui_intersection_Dialog(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     intersection_Dialog = QtWidgets.QDialog()
     ui = Ui_intersection_Dialog()
     ui.setupUi(intersection_Dialog)
     intersection_Dialog.show()
     sys.exit(app.exec_())
-
