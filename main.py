@@ -66,13 +66,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         """
         # TODO: not implemented yet
         print(u'保存文件')
-        my_file = QtWidgets.QFileDialog.getSaveFileName()
+        my_file, ok = QtWidgets.QFileDialog.getSaveFileName()
         print(my_file)
-        f = open(my_file[0], 'w')
-        my_data = self.textEdit.toPlainText()
-        f.write(my_data)
-        f.close()
-        print(my_data)
+        if ok:
+            f = open(my_file[0], 'w')
+            my_data = self.textEdit.toPlainText()
+            f.write(my_data)
+            f.close()
+            print(my_data)
+        else:
+            pass
 
     @pyqtSlot()
     def on_exit_action_triggered(self):
@@ -183,8 +186,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @pyqtSlot()
     def on_actionA_2_triggered(self):
         my_font, ok = QtWidgets.QFontDialog.getFont()
-        self.textEdit.setFont(my_font)
         print(my_font)
+        if ok:
+            self.textEdit.setFont(my_font)
+            print(my_font)
+
+    @pyqtSlot()
+    def on_color_action_triggered(self):
+        my_color = QtWidgets.QColorDialog.getColor()
+        print(my_color)
+        self.textEdit.setTextColor(my_color)
 
 
 if __name__ == "__main__":
